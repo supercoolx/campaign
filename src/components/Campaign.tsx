@@ -18,7 +18,7 @@ function Campaign() {
         const interval = setInterval(() => {
             const randomIndex = Math.floor(Math.random() * 10);
             const randomScore = Math.floor(Math.random() * 10000);
-            dispatch(setRandomScore(randomIndex,randomScore));
+            dispatch(setRandomScore(randomIndex, randomScore));
         }, 300)
         return () => {
             clearInterval(interval);
@@ -28,11 +28,14 @@ function Campaign() {
     return (
         <Layout>
             {
+                campaignState.campaignDatas.length ?
                 campaignState.campaignDatas.map(
-                    (campaign:CampaignData ,index:number) => <UserRow campaign={campaign} index={index} />
-                )
+                    (campaign:CampaignData, index:number) => <UserRow campaign={campaign} key={index} />
+                ) :
+                <div>There are no users.</div>
             }
         </Layout>
     )
 }
+
 export default Campaign;

@@ -33,7 +33,7 @@ const UserScore = styled.div`
     text-align: right;
 `;
 
-const UserRow = ({campaign, index}: {campaign: CampaignData, index: number}) => {
+const UserRow = ({ campaign }: { campaign: CampaignData }) => {
     const [score, setScore] = useState<number>(0);
     const onAnimationEnd = () => {
         setScore(campaign.score);
@@ -44,7 +44,7 @@ const UserRow = ({campaign, index}: {campaign: CampaignData, index: number}) => 
         <Row key={campaign.userID} style={{top: `${top}px`}}>
             <UserNo>{campaign.rank}</UserNo>
             <UserAvatar>
-                <UserAvatarImg src={campaign.picture}/>
+                <UserAvatarImg src={campaign.picture} alt={campaign.displayName} />
             </UserAvatar>
             <UserName>{campaign.displayName}</UserName>
             <UserScore>

@@ -4,9 +4,9 @@ type campaignsState = {
     campaignDatas: CampaignData[];
 }
 const initialState: campaignsState = {
-    campaignDatas:[]
+    campaignDatas: []
 }
-const campaignSort = (campaigns: CampaignData[]) => {
+export const campaignSort = (campaigns: CampaignData[]) => {
     let sorted = campaigns.slice().sort((a:CampaignData, b:CampaignData) => {
         return b['score'] - a['score'];
     });
